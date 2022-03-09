@@ -8,7 +8,7 @@ The software used is CoppeliaSim. The link for download is given below.
 
 CoppeliaSim Edu gives full access to all the students, teachers, professors, schools and universities
 
-Once downloaded, open the uploaded scene in the software and run the simulation to see the result. The speed with which the robot moves can be customized using a pop-up window upon the start of the simulation
+Once downloaded, open the uploaded scene in the software and run the simulation to see the result. 
 
 The robot model is created using the options available in Coppeliasim software.
 The detailed reference for doing this is shown in the following youtube video.
