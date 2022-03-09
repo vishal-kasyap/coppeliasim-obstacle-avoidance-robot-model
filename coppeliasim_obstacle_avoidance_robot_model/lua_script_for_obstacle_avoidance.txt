@@ -1,0 +1,33 @@
+function sysCall_init()
+    -- do some initialization here
+    Base=sim.getObjectHandle(sim.handle_self)
+    leftMotor=sim.getObjectHandle("LWheel_motor")
+    rightMotor=sim.getObjectHandle("RWheel_motor")
+    noseSensor=sim.getObjectHandle("Proximity_sensor")
+    minMaxSpeed={50*math.pi/180,300*math.pi/180}
+    backUntilTime=-1
+        
+    speed=(minMaxSpeed[1]+minMaxSpeed[2])*0.3
+end
+
+function sysCall_actuation()
+    -- put your actuation code here
+    result=sim.readProximitySensor(noseSensor)
+    if(result>0) then backUntilTime=sim.getSimulationTime()+4 end
+    
+    if(backUntilTime<sim.getSimulationTime()) then
+        sim.setJointTargetVelocity(leftMotor,-speed)
+        sim.setJointTargetVelocity(rightMotor,-speed)
+    else
+        sim.setJointTargetVelocity(leftMotor,speed/7)
+        sim.setJointTargetVelocity(rightMotor,speed/3)
+    end
+end
+
+function sysCall_sensing()
+    -- put your sensing code here
+end
+
+function sysCall_cleanup()
+    -- do some clean-up here    
+end
